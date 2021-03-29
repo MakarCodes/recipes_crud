@@ -5,26 +5,26 @@ import {
   ActionTypes,
 } from '../reducers/recipiesReducer';
 
-export const addRecipe = (name: string, ingredients: string) => ({
-  type: ActionTypes.ADD_RECIPE,
-  payload: { name, ingredients },
-});
-export const setRecipeToRemove = (recipe: IRecipe) => ({
-  type: ActionTypes.SET_RECIPE_TO_REMOVE,
-  payload: { recipe },
-});
-export const removeRecipe = (id: string) => ({
-  type: ActionTypes.REMOVE_RECIPE,
-  payload: { id },
-});
-export const setEditedRecipe = (recipe: IRecipe) => ({
-  type: ActionTypes.SET_EDITED_RECIPE,
-  payload: { recipe },
-});
-export const editRecipe = (recipe: IRecipe) => ({
-  type: ActionTypes.EDIT_RECIPE,
-  payload: { recipe },
-});
+// export const addRecipe = (name: string, ingredients: string) => ({
+//   type: ActionTypes.ADD_RECIPE,
+//   payload: { name, ingredients },
+// });
+// export const setRecipeToRemove = (recipe: IRecipe) => ({
+//   type: ActionTypes.SET_RECIPE_TO_REMOVE,
+//   payload: { recipe },
+// });
+// export const removeRecipe = (id: string) => ({
+//   type: ActionTypes.REMOVE_RECIPE,
+//   payload: { id },
+// });
+// export const setEditedRecipe = (recipe: IRecipe) => ({
+//   type: ActionTypes.SET_EDITED_RECIPE,
+//   payload: { recipe },
+// });
+// export const editRecipe = (recipe: IRecipe) => ({
+//   type: ActionTypes.EDIT_RECIPE,
+//   payload: { recipe },
+// });
 
 interface IRecipiesContext {
   recipiesState: IInitialState;

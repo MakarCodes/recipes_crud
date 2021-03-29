@@ -13,7 +13,6 @@ export enum ActionTypes {
   SET_EDITED_RECIPE = 'SET_EDITED_RECIPE',
   EDIT_RECIPE = 'EDIT_RECIPE',
   SET_RECIPE_TO_REMOVE = 'SET_RECIPE_TO_REMOVE',
-  SORT_RECIPES = 'SORT_RECIPES',
 }
 
 export type AddRecipeAction = {
