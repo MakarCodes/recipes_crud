@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import RecipiesContextProvider from './contexts/recipiesContext';
@@ -14,9 +15,11 @@ import RecipiesContextProvider from './contexts/recipiesContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RecipiesContextProvider>
-      <App />
-    </RecipiesContextProvider>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <RecipiesContextProvider>
+        <App />
+      </RecipiesContextProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

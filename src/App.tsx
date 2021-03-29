@@ -1,7 +1,12 @@
 import Layout from './components/Layout/Layout';
+import Routes from './components/Routes/Routes';
 
-function App() {
-  return <Layout>test</Layout>;
-}
+const App = () => {
+  return (
+    <Layout>
+      <Routes />
+    </Layout>
+  );
+};
 
 export default App;
