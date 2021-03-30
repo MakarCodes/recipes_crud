@@ -1,10 +1,10 @@
-interface IInitialState {
+export interface IInitialState {
   recipes: IRecipe[];
-  editRecipe: IRecipe | null;
+  editedRecipe: IRecipe | null;
   recipeForRemoval: IRecipe | null;
 }
 
-enum ActionTypes {
+export enum ActionTypes {
   ADD_RECIPE = 'ADD_RECIPE',
   REMOVE_RECIPE = 'REMOVE_RECIPE',
   SET_EDITED_RECIPE = 'SET_EDITED_RECIPE',
@@ -12,28 +12,28 @@ enum ActionTypes {
   SET_RECIPE_TO_REMOVE = 'SET_RECIPE_TO_REMOVE',
 }
 
-type AddRecipeAction = {
+export type AddRecipeAction = {
   type: 'ADD_RECIPE';
   payload: { name: string; ingredients: string };
 };
-type RemoveRecipeAction = {
+export type RemoveRecipeAction = {
   type: 'REMOVE_RECIPE';
   payload: { id: string };
 };
-type SetEditRecipeAction = {
+export type SetEditRecipeAction = {
   type: 'SET_EDITED_RECIPE';
   payload: { recipe: IRecipe };
 };
-type EditRecipeAction = {
+export type EditRecipeAction = {
   type: 'EDIT_RECIPE';
   payload: { recipe: IRecipe };
 };
-type SetRecipeToRemoveAction = {
+export type SetRecipeToRemoveAction = {
   type: 'SET_RECIPE_TO_REMOVE';
   payload: { recipe: IRecipe };
 };
 
-type Actions =
+export type Actions =
   | AddRecipeAction
   | RemoveRecipeAction
   | SetEditRecipeAction

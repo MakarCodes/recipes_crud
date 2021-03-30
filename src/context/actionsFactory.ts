@@ -1,3 +1,5 @@
+import { Actions, ActionTypes } from '../reducer/recipesReducerTypes';
+
 export const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
   addRecipe: (name: string, ingredients: string) =>
     dispatch({

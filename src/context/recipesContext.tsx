@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useReducer, useEffect } from 'react';
 import { initialState, recipesReducer } from '../reducer/recipesReducer';
+import { IInitialState } from '../reducer/recipesReducerTypes';
 import { actionsFactory } from './actionsFactory';
 
 interface IRecipesContext {

@@ -5,13 +5,14 @@ import {
   setEditedRecipe,
   setRecipeToRemove,
 } from './recipesReducerFunctions';
+import { Actions, ActionTypes, IInitialState } from './recipesReducerTypes';
 
 //@ts-ignore
 const recipes: IRecipe[] = JSON.parse(localStorage.getItem('recipes'));
 
 export const initialState: IInitialState = {
   recipes: recipes || [],
-  editRecipe: null,
+  editedRecipe: null,
   recipeForRemoval: null,
 };
 

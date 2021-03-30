@@ -1,5 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 import { updateObject } from '../utilities/updateObject';
+import {
+  AddRecipeAction,
+  EditRecipeAction,
+  IInitialState,
+  RemoveRecipeAction,
+  SetEditRecipeAction,
+  SetRecipeToRemoveAction,
+} from './recipesReducerTypes';
 
 export const addRecipe = (state: IInitialState, action: AddRecipeAction) => {
   const newRecipe = {

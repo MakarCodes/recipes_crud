@@ -3,8 +3,9 @@ import { useContext, useEffect } from 'react';
 import classes from './Recipes.module.scss';
 
 import { recipesContext } from '../../../context/recipesContext';
-
 import SingleRecipe from './SingleRecipe/SingleRecipe';
+import Button from '../../Resuable/Button/Button';
+import { Link } from 'react-router-dom';
 
 const Recipes = () => {
   const { recipesState, recipesActions } = useContext(recipesContext);
@@ -15,13 +16,12 @@ const Recipes = () => {
 
   return (
     <div className={classes.Wrapper}>
-      <button
-        onClick={() =>
-          recipesActions.addRecipe('Spagetti', 'makaron,mięso,sos pomidorowy')
-        }
-      >
-        add
-      </button>
+      <div className={classes.AddBtnBox}>
+        <Link to='/form' className={classes.AddLink}>
+          Add new
+        </Link>
+      </div>
+
       {!recipesState.recipes.length && (
         <p className={classes.Info}>
           Sorry, lack of new recipes. Please click add button to add new recipe.
