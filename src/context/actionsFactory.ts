@@ -17,4 +17,5 @@ export const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
     dispatch({ type: ActionTypes.SET_EDITED_RECIPE, payload: { recipe } }),
   editRecipe: (recipe: IRecipe) =>
     dispatch({ type: ActionTypes.EDIT_RECIPE, payload: { recipe } }),
+  clearEditedRecipe: () => dispatch({ type: ActionTypes.CLEAR_EDITED_RECIPE }),
 });

@@ -17,7 +17,11 @@ const Recipes = () => {
   return (
     <div className={classes.Wrapper}>
       <div className={classes.AddBtnBox}>
-        <Link to='/form' className={classes.AddLink}>
+        <Link
+          to='/form'
+          className={classes.AddLink}
+          onClick={() => recipesActions.clearEditedRecipe()}
+        >
           Add new
         </Link>
       </div>
@@ -27,8 +31,8 @@ const Recipes = () => {
           Sorry, lack of new recipes. Please click add button to add new recipe.
         </p>
       )}
-      {recipesState.recipes.map(({ id, name, ingredients }) => (
-        <SingleRecipe key={id} name={name} ingredients={ingredients} />
+      {recipesState.recipes.map(recipe => (
+        <SingleRecipe key={recipe.id} recipe={recipe} />
       ))}
     </div>
   );
