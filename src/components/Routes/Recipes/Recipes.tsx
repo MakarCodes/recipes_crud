@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 
 import classes from './Recipes.module.scss';
 
-import { recipesContext } from '../../../contexts/recipesContext';
+import { recipesContext } from '../../../context/recipesContext';
 
 import SingleRecipe from './SingleRecipe/SingleRecipe';
 

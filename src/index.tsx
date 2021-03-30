@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import RecipesContextProvider from './contexts/recipesContext';
+import RecipesContextProvider from './context/recipesContext';
 
 // global context
 // onLoadComponent -> get data from localStorage and save to global context
