@@ -1,8 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import { updateObject } from '../utilities/updateObject';
 
+//@ts-ignore
+const recipes: IRecipe[] = JSON.parse(localStorage.getItem('recipes'));
+
 export const initialState: IInitialState = {
-  recipies: [],
+  recipes: recipes || [],
   editRecipe: null,
   recipeForRemoval: null,
 };
@@ -49,7 +52,7 @@ const addRecipe = (state: IInitialState, action: AddRecipeAction) => {
     name: action.payload.name,
     ingredients: action.payload.ingredients,
   };
-  const updatedListOfRecipes = [...state.recipies];
+  const updatedListOfRecipes = [...state.recipes];
   updatedListOfRecipes.push(newRecipe);
   return updateObject(state, {
     recipes: updatedListOfRecipes,
@@ -64,11 +67,11 @@ const setRecipeToRemove = (
   });
 };
 const removeRecipe = (state: IInitialState, action: RemoveRecipeAction) => {
-  const recipiesAfterRemoval = state.recipies.filter(
+  const recipiesAfterRemoval = state.recipes.filter(
     (recipe: IRecipe) => recipe.id !== action.payload.id
   );
   return updateObject(state, {
-    recipies: recipiesAfterRemoval,
+    recipes: recipiesAfterRemoval,
     recipeForRemoval: null,
   });
 };
@@ -78,18 +81,18 @@ const setEditedRecipe = (state: IInitialState, action: SetEditRecipeAction) => {
   });
 };
 const editRecipe = (state: IInitialState, action: EditRecipeAction) => {
-  const updatedRecipies = state.recipies.map((recipe: IRecipe) => {
+  const updatedRecipies = state.recipes.map((recipe: IRecipe) => {
     return recipe.id === action.payload.recipe.id
       ? action.payload.recipe
       : recipe;
   });
   return updateObject(state, {
-    recipies: updatedRecipies,
+    recipes: updatedRecipies,
     editRecipe: null,
   });
 };
 
-export const recipiesReducer = (
+export const recipesReducer = (
   state: IInitialState = initialState,
   action: Actions
 ) => {

@@ -5,7 +5,7 @@ interface IRecipe {
 }
 
 interface IInitialState {
-  recipies: IRecipe[];
+  recipes: IRecipe[];
   editRecipe: IRecipe | null;
   recipeForRemoval: IRecipe | null;
 }

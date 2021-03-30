@@ -1,9 +1,9 @@
-import { createContext, ReactNode, useReducer } from 'react';
+import { createContext, ReactNode, useReducer, useEffect } from 'react';
 import {
   initialState,
-  recipiesReducer,
+  recipesReducer,
   ActionTypes,
-} from '../reducers/recipiesReducer';
+} from '../reducers/recipesReducer';
 
 // export const addRecipe = (name: string, ingredients: string) => ({
 //   type: ActionTypes.ADD_RECIPE,
@@ -26,26 +26,31 @@ import {
 //   payload: { recipe },
 // });
 
-interface IRecipiesContext {
-  recipiesState: IInitialState;
-  recipiesActions: {
+interface IRecipesContext {
+  recipesState: IInitialState;
+  recipesActions: {
     addRecipe: (name: string, ingredients: string) => void;
   };
 }
 
-const initCtx: IRecipiesContext = {
-  recipiesState: initialState,
-  recipiesActions: {
+const initCtx: IRecipesContext = {
+  recipesState: initialState,
+  recipesActions: {
     addRecipe: (name: string, ingredients: string) => {},
   },
 };
 
-export const recipiesContext = createContext(initCtx);
+export const recipesContext = createContext(initCtx);
 
 const RecipiesContextProvider: React.FC<ReactNode> = ({ children }) => {
-  const [recipiesState, dispatch] = useReducer(recipiesReducer, initialState);
+  const [recipesState, dispatch] = useReducer(recipesReducer, initialState);
 
-  const recipiesActions = {
+  //add recipes to local storage if on any change in recpies
+  useEffect(() => {
+    localStorage.setItem('recipes', JSON.stringify(recipesState.recipes));
+  }, [recipesState.recipes]);
+
+  const recipesActions = {
     addRecipe: (name: string, ingredients: string) =>
       dispatch({
         type: ActionTypes.ADD_RECIPE,
@@ -54,13 +59,13 @@ const RecipiesContextProvider: React.FC<ReactNode> = ({ children }) => {
   };
 
   const providerValue = {
-    recipiesState,
-    recipiesActions,
+    recipesState,
+    recipesActions,
   };
   return (
-    <recipiesContext.Provider value={providerValue}>
+    <recipesContext.Provider value={providerValue}>
       {children}
-    </recipiesContext.Provider>
+    </recipesContext.Provider>
   );
 };
 

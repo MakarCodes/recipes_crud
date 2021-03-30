@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import RecipiesContextProvider from './contexts/recipiesContext';
+import RecipesContextProvider from './contexts/recipesContext';
 
 // global context
 // onLoadComponent -> get data from localStorage and save to global context
@@ -16,9 +16,9 @@ import RecipiesContextProvider from './contexts/recipiesContext';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <RecipiesContextProvider>
+      <RecipesContextProvider>
         <App />
-      </RecipiesContextProvider>
+      </RecipesContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

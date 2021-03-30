@@ -1,7 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 
 import Form from './Form/Form';
-import Recipies from './Recipies/Recipies';
+import Recipes from './Recipes/Recipes';
 import Page404 from './Page404/Page404';
 
 const Routes = () => {
@@ -9,7 +9,7 @@ const Routes = () => {
     <>
       <Switch>
         <Route path='/form' component={Form} />
-        <Route exact path='/' component={Recipies} />
+        <Route exact path='/' component={Recipes} />
         <Route component={Page404} />
       </Switch>
     </>
