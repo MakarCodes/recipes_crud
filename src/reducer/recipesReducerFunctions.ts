@@ -10,10 +10,11 @@ import {
 } from './recipesReducerTypes';
 
 export const addRecipe = (state: IInitialState, action: AddRecipeAction) => {
+  const { name, ingredients } = action.payload;
   const newRecipe = {
     id: uuidv4(),
-    name: action.payload.name,
-    ingredients: action.payload.ingredients.split(','),
+    name: name,
+    ingredients: ingredients.split(','),
   };
   const updatedListOfRecipes = [...state.recipes];
   updatedListOfRecipes.push(newRecipe);
@@ -25,16 +26,18 @@ export const setRecipeToRemove = (
   state: IInitialState,
   action: SetRecipeToRemoveAction
 ) => {
+  const { recipe } = action.payload;
   return updateObject(state, {
-    recipeForRemoval: action.payload.recipe,
+    recipeForRemoval: recipe,
   });
 };
 export const removeRecipe = (
   state: IInitialState,
   action: RemoveRecipeAction
 ) => {
+  const { id } = action.payload;
   const recipiesAfterRemoval = state.recipes.filter(
-    (recipe: IRecipe) => recipe.id !== action.payload.id
+    (recipe: IRecipe) => recipe.id !== id
   );
   return updateObject(state, {
     recipes: recipiesAfterRemoval,
@@ -45,8 +48,9 @@ export const setEditedRecipe = (
   state: IInitialState,
   action: SetEditRecipeAction
 ) => {
+  const { recipe } = action.payload;
   return updateObject(state, {
-    editedRecipe: action.payload.recipe,
+    editedRecipe: recipe,
   });
 };
 export const editRecipe = (state: IInitialState, action: EditRecipeAction) => {

@@ -43,10 +43,6 @@ const Form = () => {
     resetForm();
   };
 
-  const handleCancel = () => {
-    resetForm();
-  };
-
   return (
     <div className={classes.Wrapper}>
       <h2 className={classes.Title}>Your new recipe</h2>
@@ -82,7 +78,7 @@ const Form = () => {
         <div className={classes.ButtonsContainer}>
           <button
             type='button'
-            onClick={() => handleCancel()}
+            onClick={() => resetForm()}
             className={`${classes.Btn} ${classes.Cancel}`}
           >
             Cancel

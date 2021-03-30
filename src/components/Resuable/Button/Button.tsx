@@ -9,9 +9,7 @@ interface IProps {
 
 const Button: React.FC<IProps> = ({ text, bgColor, testID, action }) => (
   <button
-    onClick={() => {
-      action();
-    }}
+    onClick={action}
     className={classes.Btn}
     style={{ backgroundColor: `${bgColor}` }}
     data-testid={testID}
