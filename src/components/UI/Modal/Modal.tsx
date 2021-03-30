@@ -2,6 +2,7 @@ import { useCallback, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.scss';
 
+const modalRoot = document.getElementById('modal-root') as HTMLDivElement;
 interface IProps {
   isVisible: boolean;
   toggleVisibility: () => void;
@@ -47,7 +48,7 @@ const Modal: React.FC<IProps> = ({ isVisible, toggleVisibility, children }) => {
             </div>
           </div>
         </>,
-        document.body
+        modalRoot
       )
     : null;
 };
