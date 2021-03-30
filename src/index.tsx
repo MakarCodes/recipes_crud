@@ -10,7 +10,6 @@ import RecipesContextProvider from './context/recipesContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* hide gh pages url */}
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <RecipesContextProvider>
         <App />
