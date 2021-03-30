@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect } from 'react';
+import { useCallback, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import classes from './Recipes.module.scss';
@@ -25,10 +25,6 @@ const generateRecipesList = (
 const Recipes = () => {
   const { recipesState, recipesActions } = useContext(recipesContext);
   const { recipeForRemoval, recipes } = recipesState;
-
-  useEffect(() => {
-    console.log(recipesState);
-  }, [recipesState]);
 
   const { isVisible, toggleVisibility } = useVisibility();
 

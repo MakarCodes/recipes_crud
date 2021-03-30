@@ -1,4 +1,4 @@
-import { useMemo, useContext } from 'react';
+import { useMemo, useContext, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { recipesContext } from '../../../../context/recipesContext';
 import useVisibility from '../../../../customHooks/useVisibility';
@@ -13,6 +13,7 @@ interface IProps {
 const SingleRecipe: React.FC<IProps> = ({ recipe, handleDeleteClick }) => {
   const { recipesActions } = useContext(recipesContext);
   const { name, ingredients } = recipe;
+  const { setEditedRecipe } = recipesActions;
 
   const history = useHistory();
 
@@ -28,10 +29,13 @@ const SingleRecipe: React.FC<IProps> = ({ recipe, handleDeleteClick }) => {
     [ingredients]
   );
 
-  const handleEditBtnClick = (recipe: IRecipe) => {
-    recipesActions.setEditedRecipe(recipe);
-    history.push('/form');
-  };
+  const handleEditBtnClick = useCallback(
+    (recipe: IRecipe) => {
+      setEditedRecipe(recipe);
+      history.push('/form');
+    },
+    [setEditedRecipe, history]
+  );
   return (
     <div className={classes.Card}>
       <div className={classes.Name} onClick={() => toggleVisibility()}>

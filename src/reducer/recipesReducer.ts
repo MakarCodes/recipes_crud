@@ -7,11 +7,10 @@ import {
 } from './recipesReducerFunctions';
 import { Actions, ActionTypes, IInitialState } from './recipesReducerTypes';
 
-//@ts-ignore
-const recipes: IRecipe[] = JSON.parse(localStorage.getItem('recipes'));
+const recipes: IRecipe[] = JSON.parse(localStorage.getItem('recipes') || '[]');
 
 export const initialState: IInitialState = {
-  recipes: recipes || [],
+  recipes: recipes,
   editedRecipe: null,
   recipeForRemoval: null,
 };

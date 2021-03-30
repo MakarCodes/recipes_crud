@@ -31,7 +31,6 @@ const RecipiesContextProvider: React.FC<ReactNode> = ({ children }) => {
   const [recipesState, dispatch] = useReducer(recipesReducer, initialState);
   const actions = actionsFactory(dispatch);
 
-  //add recipes to local storage on any change in recipes
   useEffect(() => {
     localStorage.setItem('recipes', JSON.stringify(recipesState.recipes));
   }, [recipesState.recipes]);

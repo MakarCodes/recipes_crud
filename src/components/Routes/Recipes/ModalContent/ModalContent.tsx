@@ -1,7 +1,7 @@
 import classes from './ModalContent.module.scss';
 
 import Button from '../../../Resuable/Button/Button';
-import { useContext } from 'react';
+import { useContext, useCallback } from 'react';
 import { recipesContext } from '../../../../context/recipesContext';
 
 interface IProps {
@@ -16,14 +16,16 @@ const ModalContent: React.FC<IProps> = ({
   const { recipesActions } = useContext(recipesContext);
   const { removeRecipe, setRecipeToRemove } = recipesActions;
 
-  const handleDelete = () => {
+  const handleDelete = useCallback(() => {
     removeRecipe(recipeForRemoval.id);
     toggleVisibility();
-  };
-  const handleCancelDelete = () => {
+  }, [removeRecipe, toggleVisibility, recipeForRemoval.id]);
+
+  const handleCancelDelete = useCallback(() => {
     toggleVisibility();
     setRecipeToRemove(null);
-  };
+  }, [toggleVisibility, setRecipeToRemove]);
+
   return (
     <div className={classes.Wrapper}>
       <h2 className={classes.Title}>Delete</h2>
