@@ -1,6 +1,14 @@
 .Wrapper {
-  background-color: #ccc;
-  padding: 20px;
+  width: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
+  padding: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: solid 1px #ccc;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  @media (min-width: '768px') {
+    padding: 20px;
+  }
 }
 
 .Info {

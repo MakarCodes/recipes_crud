@@ -10,10 +10,14 @@
   display: block;
   background-color: #79a3b1;
   padding: 6px;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   text-transform: capitalize;
   cursor: pointer;
+  @media (min-width: '768px') {
+    font-size: 20px;
+    font-weight: 700;
+  }
 }
 
 .IngredientsWrapper {

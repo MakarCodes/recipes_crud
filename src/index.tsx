@@ -5,14 +5,6 @@ import './index.css';
 import App from './App';
 import RecipesContextProvider from './context/recipesContext';
 
-// global context
-// onLoadComponent -> get data from localStorage and save to global context
-// app
-// layout
-// routes
-// route components
-// UI -> modal
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter basename={process.env.PUBLIC_URL}>

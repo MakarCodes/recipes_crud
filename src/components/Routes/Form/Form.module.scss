@@ -85,8 +85,11 @@
     border: 1px solid #88d5e9;
   }
   &::placeholder {
-    font-size: 16px;
+    font-size: 12px;
     color: #ccc;
+    @media (min-width: '425px') {
+      font-size: 14px;
+    }
     @media (min-width: '768px') {
       font-size: 18px;
     }

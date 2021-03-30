@@ -4,12 +4,12 @@ const Layout: React.FC<React.ReactNode> = ({ children }) => {
   return (
     <div className={classes.Wrapper}>
       <h1 className={classes.Title}>Best Recipes</h1>
-      {/* <div
+      <div
         className={classes.InnerWrapper}
-        style={{ minHeight: `${window.innerHeight - 200}px` }}
-      > */}
-      {children}
-      {/* </div> */}
+        style={{ minHeight: `${window.innerHeight - 250}px` }}
+      >
+        {children}
+      </div>
     </div>
   );
 };

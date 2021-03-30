@@ -1,5 +1,5 @@
 .Wrapper {
-  background-color: transparent;
+  background-color: #fcf8ec;
   min-height: 100vh;
   width: 100%;
   max-width: 1400px;
@@ -14,18 +14,23 @@
 }
 
 .InnerWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .Title {
   font-size: 30px;
   font-weight: 900;
   margin-bottom: 20px;
+  padding: 10px 0;
   text-align: center;
+  background-color: #79a3b1;
+  border-radius: 2px;
   @media (min-width: '768px') {
     font-size: 48px;
     margin-bottom: 40px;
+    padding: 15px 0;
   }
 }
