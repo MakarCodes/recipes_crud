@@ -1,21 +1,53 @@
-import { useContext, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import classes from './Recipes.module.scss';
 
 import { recipesContext } from '../../../context/recipesContext';
+import useVisibility from '../../../customHooks/useVisibility';
+
 import SingleRecipe from './SingleRecipe/SingleRecipe';
-import Button from '../../Resuable/Button/Button';
-import { Link } from 'react-router-dom';
+import Modal from '../../UI/Modal/Modal';
+
+const generateRecipesList = (
+  recipes: IRecipe[],
+  handleDeleteClick: (recipe: IRecipe) => void
+) =>
+  recipes.map(recipe => (
+    <SingleRecipe
+      key={recipe.id}
+      recipe={recipe}
+      handleDeleteClick={handleDeleteClick}
+    />
+  ));
 
 const Recipes = () => {
   const { recipesState, recipesActions } = useContext(recipesContext);
+  const { recipeForRemoval, recipes } = recipesState;
 
   useEffect(() => {
     console.log(recipesState);
   }, [recipesState]);
 
+  const { isVisible, toggleVisibility } = useVisibility();
+
+  const handleDeleteClick = useCallback(
+    (recipe: IRecipe) => {
+      toggleVisibility();
+      recipesActions.setRecipeToRemove(recipe);
+    },
+    [toggleVisibility, recipesActions]
+  );
+
+  const recipesList = generateRecipesList(recipes, handleDeleteClick);
+
   return (
     <div className={classes.Wrapper}>
+      {isVisible && (
+        <Modal isVisible={isVisible} toggleVisibility={toggleVisibility}>
+          {recipeForRemoval && <div>test</div>}
+        </Modal>
+      )}
       <div className={classes.AddBtnBox}>
         <Link
           to='/form'
@@ -31,9 +63,7 @@ const Recipes = () => {
           Sorry, lack of new recipes. Please click add button to add new recipe.
         </p>
       )}
-      {recipesState.recipes.map(recipe => (
-        <SingleRecipe key={recipe.id} recipe={recipe} />
-      ))}
+      {recipesList}
     </div>
   );
 };

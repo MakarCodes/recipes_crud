@@ -1,5 +1,5 @@
 import { useMemo, useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { recipesContext } from '../../../../context/recipesContext';
 import useVisibility from '../../../../customHooks/useVisibility';
 import Button from '../../../Resuable/Button/Button';
@@ -7,13 +7,17 @@ import classes from './SingleRecipe.module.scss';
 
 interface IProps {
   recipe: IRecipe;
+  handleDeleteClick: (recipe: IRecipe) => void;
 }
 
-const SingleRecipe: React.FC<IProps> = ({ recipe }) => {
-  const history = useHistory();
-  const { recipesState, recipesActions } = useContext(recipesContext);
-  const { isVisible, toggleVisibility } = useVisibility();
+const SingleRecipe: React.FC<IProps> = ({ recipe, handleDeleteClick }) => {
+  const { recipesActions } = useContext(recipesContext);
   const { name, ingredients } = recipe;
+
+  const history = useHistory();
+
+  const { isVisible, toggleVisibility } = useVisibility();
+
   const ingredientList = useMemo(
     () =>
       ingredients.map((ingredient, idx) => (
@@ -36,16 +40,22 @@ const SingleRecipe: React.FC<IProps> = ({ recipe }) => {
       {isVisible && (
         <div className={classes.IngredientsWrapper}>
           <ul className={classes.Ingredients}>{ingredientList}</ul>
+          <div className={classes.ButtonsContainer}>
+            <Button
+              text='Edit'
+              bgColor='#007bff'
+              action={() => handleEditBtnClick(recipe)}
+              testID='edit-btn'
+            />
+            <Button
+              text='Remove'
+              bgColor='#dc3545'
+              action={() => handleDeleteClick(recipe)}
+              testID='remove-btn'
+            />
+          </div>
         </div>
       )}
-      <div className={classes.ButtonsContainer}>
-        <Button
-          text='Edit recipe'
-          bgColor='#007bff'
-          action={() => handleEditBtnClick(recipe)}
-          testID='edit-btn'
-        />
-      </div>
     </div>
   );
 };
