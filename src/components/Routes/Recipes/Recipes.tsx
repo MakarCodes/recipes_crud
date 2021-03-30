@@ -55,17 +55,18 @@ const Recipes = () => {
           to='/form'
           className={classes.AddLink}
           onClick={() => recipesActions.setEditedRecipe(null)}
+          data-testid='new-link-btn'
         >
           Add new
         </Link>
       </div>
 
       {!recipesState.recipes.length && (
-        <p className={classes.Info}>
+        <p className={classes.Info} data-testid='info'>
           Sorry, lack of new recipes. Please click add button to add new recipe.
         </p>
       )}
-      {recipesList}
+      <div data-testid='recipes-container'>{recipesList}</div>
     </div>
   );
 };

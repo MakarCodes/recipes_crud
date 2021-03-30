@@ -38,12 +38,18 @@ const SingleRecipe: React.FC<IProps> = ({ recipe, handleDeleteClick }) => {
   );
   return (
     <div className={classes.Card}>
-      <div className={classes.Name} onClick={() => toggleVisibility()}>
+      <div
+        className={classes.Name}
+        onClick={() => toggleVisibility()}
+        data-testid={recipe.name}
+      >
         {name}
       </div>
       {isVisible && (
         <div className={classes.IngredientsWrapper}>
-          <ul className={classes.Ingredients}>{ingredientList}</ul>
+          <ul className={classes.Ingredients} data-testid='ingredients'>
+            {ingredientList}
+          </ul>
           <div className={classes.ButtonsContainer}>
             <Button
               text='Edit'
