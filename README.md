@@ -14,6 +14,7 @@ Project is created with:
 - React ^17.0.1
 - TypeScript ^4.1.3
 - SCSS
+- Jest & react-testing-library
 
 ## Live
 
