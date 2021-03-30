@@ -1,6 +1,5 @@
 import {
   addRecipe,
-  clearEditedRecipe,
   editRecipe,
   removeRecipe,
   setEditedRecipe,
@@ -32,8 +31,6 @@ export const recipesReducer = (
       return setEditedRecipe(state, action);
     case ActionTypes.EDIT_RECIPE:
       return editRecipe(state, action);
-    case ActionTypes.CLEAR_EDITED_RECIPE:
-      return clearEditedRecipe(state, action);
     default:
       return state;
   }

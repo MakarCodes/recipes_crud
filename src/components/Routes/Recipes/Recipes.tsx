@@ -58,7 +58,7 @@ const Recipes = () => {
         <Link
           to='/form'
           className={classes.AddLink}
-          onClick={() => recipesActions.clearEditedRecipe()}
+          onClick={() => recipesActions.setEditedRecipe(null)}
         >
           Add new
         </Link>

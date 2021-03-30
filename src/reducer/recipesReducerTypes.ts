@@ -10,7 +10,6 @@ export enum ActionTypes {
   SET_EDITED_RECIPE = 'SET_EDITED_RECIPE',
   EDIT_RECIPE = 'EDIT_RECIPE',
   SET_RECIPE_TO_REMOVE = 'SET_RECIPE_TO_REMOVE',
-  CLEAR_EDITED_RECIPE = 'CLEAR_EDITED_RECIPE',
 }
 
 export type AddRecipeAction = {
@@ -23,7 +22,7 @@ export type RemoveRecipeAction = {
 };
 export type SetEditRecipeAction = {
   type: 'SET_EDITED_RECIPE';
-  payload: { recipe: IRecipe };
+  payload: { recipe: IRecipe | null };
 };
 export type EditRecipeAction = {
   type: 'EDIT_RECIPE';
@@ -33,14 +32,10 @@ export type SetRecipeToRemoveAction = {
   type: 'SET_RECIPE_TO_REMOVE';
   payload: { recipe: IRecipe | null };
 };
-export type ClearEditedRecipeeAction = {
-  type: 'CLEAR_EDITED_RECIPE';
-};
 
 export type Actions =
   | AddRecipeAction
   | RemoveRecipeAction
   | SetEditRecipeAction
   | EditRecipeAction
-  | SetRecipeToRemoveAction
-  | ClearEditedRecipeeAction;
+  | SetRecipeToRemoveAction;

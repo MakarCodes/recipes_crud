@@ -9,9 +9,8 @@ interface IRecipesContext {
     addRecipe: (name: string, ingredients: string) => void;
     setRecipeToRemove: (recipe: IRecipe | null) => void;
     removeRecipe: (id: string) => void;
-    setEditedRecipe: (recipe: IRecipe) => void;
+    setEditedRecipe: (recipe: IRecipe | null) => void;
     editRecipe: (recipe: IRecipe) => void;
-    clearEditedRecipe: () => void;
   };
 }
 
@@ -21,9 +20,8 @@ const initCtx: IRecipesContext = {
     addRecipe: (name: string, ingredients: string) => {},
     setRecipeToRemove: (recipe: IRecipe | null) => {},
     removeRecipe: (id: string) => {},
-    setEditedRecipe: (recipe: IRecipe) => {},
+    setEditedRecipe: (recipe: IRecipe | null) => {},
     editRecipe: (recipe: IRecipe) => {},
-    clearEditedRecipe: () => {},
   },
 };
 
@@ -44,7 +42,6 @@ const RecipiesContextProvider: React.FC<ReactNode> = ({ children }) => {
     removeRecipe,
     setEditedRecipe,
     editRecipe,
-    clearEditedRecipe,
   } = actions;
 
   const recipesActions = {
@@ -53,7 +50,6 @@ const RecipiesContextProvider: React.FC<ReactNode> = ({ children }) => {
     removeRecipe,
     setEditedRecipe,
     editRecipe,
-    clearEditedRecipe,
   };
 
   const providerValue = {

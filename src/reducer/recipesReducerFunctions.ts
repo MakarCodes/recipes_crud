@@ -7,7 +7,6 @@ import {
   RemoveRecipeAction,
   SetEditRecipeAction,
   SetRecipeToRemoveAction,
-  ClearEditedRecipeeAction,
 } from './recipesReducerTypes';
 
 export const addRecipe = (state: IInitialState, action: AddRecipeAction) => {
@@ -58,15 +57,6 @@ export const editRecipe = (state: IInitialState, action: EditRecipeAction) => {
   });
   return updateObject(state, {
     recipes: updatedRecipies,
-    editedRecipe: null,
-  });
-};
-
-export const clearEditedRecipe = (
-  state: IInitialState,
-  action: ClearEditedRecipeeAction
-) => {
-  return updateObject(state, {
     editedRecipe: null,
   });
 };
