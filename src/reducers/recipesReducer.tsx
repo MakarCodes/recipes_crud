@@ -50,7 +50,7 @@ const addRecipe = (state: IInitialState, action: AddRecipeAction) => {
   const newRecipe = {
     id: uuidv4(),
     name: action.payload.name,
-    ingredients: action.payload.ingredients,
+    ingredients: action.payload.ingredients.split(','),
   };
   const updatedListOfRecipes = [...state.recipes];
   updatedListOfRecipes.push(newRecipe);

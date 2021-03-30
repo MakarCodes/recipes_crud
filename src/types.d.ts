@@ -1,7 +1,7 @@
 interface IRecipe {
   id: string;
   name: string;
-  ingredients: string;
+  ingredients: string[];
 }
 
 interface IInitialState {
