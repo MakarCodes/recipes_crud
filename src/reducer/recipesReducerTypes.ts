@@ -31,7 +31,7 @@ export type EditRecipeAction = {
 };
 export type SetRecipeToRemoveAction = {
   type: 'SET_RECIPE_TO_REMOVE';
-  payload: { recipe: IRecipe };
+  payload: { recipe: IRecipe | null };
 };
 export type ClearEditedRecipeeAction = {
   type: 'CLEAR_EDITED_RECIPE';

@@ -6,7 +6,7 @@ export const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
       type: ActionTypes.ADD_RECIPE,
       payload: { name, ingredients },
     }),
-  setRecipeToRemove: (recipe: IRecipe) =>
+  setRecipeToRemove: (recipe: IRecipe | null) =>
     dispatch({
       type: ActionTypes.SET_RECIPE_TO_REMOVE,
       payload: { recipe },

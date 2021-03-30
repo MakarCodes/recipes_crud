@@ -8,6 +8,7 @@ import useVisibility from '../../../customHooks/useVisibility';
 
 import SingleRecipe from './SingleRecipe/SingleRecipe';
 import Modal from '../../UI/Modal/Modal';
+import ModalContent from './ModalContent/ModalContent';
 
 const generateRecipesList = (
   recipes: IRecipe[],
@@ -45,7 +46,12 @@ const Recipes = () => {
     <div className={classes.Wrapper}>
       {isVisible && (
         <Modal isVisible={isVisible} toggleVisibility={toggleVisibility}>
-          {recipeForRemoval && <div>test</div>}
+          {recipeForRemoval && (
+            <ModalContent
+              recipeForRemoval={recipeForRemoval}
+              toggleVisibility={toggleVisibility}
+            />
+          )}
         </Modal>
       )}
       <div className={classes.AddBtnBox}>

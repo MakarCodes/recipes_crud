@@ -7,7 +7,7 @@ interface IRecipesContext {
   recipesState: IInitialState;
   recipesActions: {
     addRecipe: (name: string, ingredients: string) => void;
-    setRecipeToRemove: (recipe: IRecipe) => void;
+    setRecipeToRemove: (recipe: IRecipe | null) => void;
     removeRecipe: (id: string) => void;
     setEditedRecipe: (recipe: IRecipe) => void;
     editRecipe: (recipe: IRecipe) => void;
@@ -19,7 +19,7 @@ const initCtx: IRecipesContext = {
   recipesState: initialState,
   recipesActions: {
     addRecipe: (name: string, ingredients: string) => {},
-    setRecipeToRemove: (recipe: IRecipe) => {},
+    setRecipeToRemove: (recipe: IRecipe | null) => {},
     removeRecipe: (id: string) => {},
     setEditedRecipe: (recipe: IRecipe) => {},
     editRecipe: (recipe: IRecipe) => {},
