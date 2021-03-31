@@ -36,7 +36,7 @@ const ModalContent: React.FC<IProps> = ({
         <Button
           text='Delete'
           action={handleDelete}
-          bgColor='#dc3545'
+          bgColor='#c64756'
           testID='btn-delete'
         />
         <Button

@@ -1,6 +1,4 @@
 .Card {
-  border: solid 1px #456268;
-  border-radius: 3px;
   &:not(:last-child) {
     margin: 0 auto 10px auto;
   }
@@ -8,36 +6,35 @@
 
 .Name {
   display: block;
-  background-color: #79a3b1;
+  background-color: #184d47;
+  color: white;
+  border-radius: 4px;
   padding: 6px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: capitalize;
   cursor: pointer;
   @media (min-width: '768px') {
     font-size: 20px;
-    font-weight: 700;
   }
 }
 
 .IngredientsWrapper {
-  margin: 20px 10px;
-  padding: 20px 0 10px 0;
-  border-top: 1px solid #456268;
+  margin: 10px;
 }
 
 .Ingredients {
   display: block;
-  background-color: #d0e8f2;
+  background-color: transparent;
 }
 
 .SingleIngredient {
-  font-size: 16px;
-  padding: 6px;
+  font-size: 18px;
+  padding: 6px 12px;
   list-style-type: none;
-  border: solid 1px #456268;
-  &:not(:last-child) {
-    border-bottom: none;
+  border-bottom: solid 1px #184d47;
+  &::before {
+    content: '- ';
   }
 }
 

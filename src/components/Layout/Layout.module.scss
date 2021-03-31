@@ -1,5 +1,7 @@
 .Wrapper {
-  background-color: #fcf8ec;
+  background-color: transparent;
+  border: solid 1px #ccc;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   min-height: 100vh;
   width: 100%;
   max-width: 1400px;
@@ -15,9 +17,6 @@
 
 .InnerWrapper {
   width: 100%;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 }
 
 .Title {
@@ -26,11 +25,11 @@
   margin-bottom: 20px;
   padding: 10px 0;
   text-align: center;
-  background-color: #79a3b1;
-  border-radius: 2px;
+  background-color: #ffde7d;
+  border-radius: 10px;
   @media (min-width: '768px') {
     font-size: 48px;
     margin-bottom: 40px;
-    padding: 15px 0;
+    padding: 20px 0;
   }
 }

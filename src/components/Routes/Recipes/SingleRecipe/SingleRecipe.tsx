@@ -53,13 +53,13 @@ const SingleRecipe: React.FC<IProps> = ({ recipe, handleDeleteClick }) => {
           <div className={classes.ButtonsContainer}>
             <Button
               text='Edit'
-              bgColor='#007bff'
+              bgColor='grey'
               action={() => handleEditBtnClick(recipe)}
               testID='edit-btn'
             />
             <Button
               text='Remove'
-              bgColor='#dc3545'
+              bgColor='#c64756'
               action={() => handleDeleteClick(recipe)}
               testID='remove-btn'
             />

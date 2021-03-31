@@ -4,7 +4,7 @@ const Layout: React.FC<React.ReactNode> = ({ children }) => {
   return (
     <div className={classes.Wrapper}>
       <h1 className={classes.Title} data-testid='title'>
-        Best Recipes
+        Your Best Recipes
       </h1>
       <div
         className={classes.InnerWrapper}

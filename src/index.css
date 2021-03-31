@@ -16,8 +16,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   font-family: 'Lato', sans-serif;
-  background-color: #f4f4f4;
-  color: #212529;
+  background-color: #f8f3d4;
+  color: #1b262c;
   @media (min-width: '768px') {
     font-size: 20px;
   }
