@@ -8,7 +8,7 @@ describe('Layout is rendering correctly if', () => {
     const title = screen.getByTestId('title');
     expect(title).toBeInTheDocument();
     // expect(title.innerHTML.includes('Best Recipes')).toBeTruthy();
-    expect(title.textContent).toBe('Best Recipes');
+    expect(title.textContent).toBe('Your Best Recipes');
 
     const wrapper = screen.getByTestId('inner-layout-wrapper');
     expect(wrapper).toBeInTheDocument();
